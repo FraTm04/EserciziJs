@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="UTF-8">
+        <title>Somma</title>
+        <script type="text/javascript">
+        
+        	function aggiungiInput(){
+            
+            var dimensione = document.forms["strumenti"]["txtquanti"].value;
+
+			
+            for(n=1; n<=dimensione; n=n+1){
+            testo="Partecipante numero "+n;	
+            var formNumeri=document.getElementById("numeri");	
+            var elementoP=document.createElement("P");	
+            var elementoT=document.createTextNode(testo);	
+            var elementoI=document.createElement("INPUT");	 
+            formNumeri.appendChild(elementoP);	
+            elementoP.appendChild(elementoT);	
+            elementoP.appendChild(elementoI);	
+            elementoI.type="text";	
+            elementoI.name="txtnumero"+n;	
+            }
+            
+            }
+        
+        	function calcola() {
+            var numMaggiorenni=0;
+                var numMinorenni=0;
+                var numUltraSessantacinquenni=0;
+            var numeri=new Array();	
+            
+            var dimensione=document.forms["strumenti"]["txtquanti"].value;	
+            totale=0;
+            
+           
+            for(n=1; n<=dimensione; n++)
+            {
+            numeri[n]=parseInt(document.forms["numeri"]["txtnumero"+n].value);
+            
+            totale=totale+numeri[n];	
+            }
+            
+            for(n=1; n<=dimensione; n++){
+            if(numeri[n]>=18){
+                            numMaggiorenni++;
+                            if(numeri[n]>65){
+                                numUltraSessantacinquenni++;
+                            }
+                        }
+                        else{
+                            numMinorenni++;
+                        }
+           }
+            
+           
+            for(n=1; n<=dimensione; n++)
+            {
+            document.write("<p> "+n+"° Partecipante: "+numeri[n]);
+            }
+             document.write("<p>Media dei "+dimensione+" partecipanti: "+(totale/dimensione)+"</p>");
+              document.write("\nNumero Maggiorenni: " + numMaggiorenni +"\nNumero Minorenni: " + numMinorenni+"\nNumero Ultrasessantacinquenni: " + numUltraSessantacinquenni);		
+}
+        </script>
+     </head>        
+<body>
+	<h2>Fiera dell'Est</h2>
+    <form id="strumenti">
+    	<p>
+        Numero dei partecipanti: <input type="text" name="txtquanti">	
+        <input id="button" type="button" value="aggiungi" onclick="aggiungiInput()"> 
+        <input type="button" value="Reset" onclick="window.location.reload()"> 
+        </p>
+        </form>
+        <form id="numeri">	
+        <p>
+       
+        
+        <input type="button" value="calcola" onclick="calcola()">
+        </p>
+    </form>
+</body>
+</html> 
