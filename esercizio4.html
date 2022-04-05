@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Immagini</title>
+</head>
+<script>
+    function fotografia(numFoto){
+        var idImmagine = "immagine" + numFoto;
+        switch(numFoto){
+            case 1:
+                document.getElementById(idImmagine).title = "Canguro, 20 euro al Kg";
+            break;
+
+            case 2:
+                document.getElementById(idImmagine).title = "Tacchino, 10  euro al Kg";
+            break;
+
+            case 3:
+                document.getElementById(idImmagine).title = "Scimmia, 50 euro al Kg";
+            break;
+
+            case 4:
+                document.getElementById(idImmagine).title = "Capra 15 euro al Kg";
+            break;
+
+            case 5:
+                document.getElementById(idImmagine).title = "Maiale 5 euro al Kg";
+            break;
+
+case 6:
+                document.getElementById(idImmagine).title = "Gatto, 100 euro al Kg";
+            break;
+        }
+        
+    }
+</script>
+<body>
+//Prima Modifica
+    <h1>Scorrere il cursore</h1>
+    <p id="out"></p>
+    <table><tr><td>Immagini</td></tr>
+    <tr><td><img src="canguro.jpg" height="300px" widht="200px" onmouseover="fotografia(1)" id="immagine1"></td></tr>
+    <tr><td><img src="tacchino.jpg" height="300px" widht="200px" onmouseover="fotografia(2)" id="immagine2"></td></tr>
+    <tr><td><img src="scimmia.jpg" height="300px" widht="200px" onmouseover="fotografia(3)" id="immagine3"></td></tr>
+    <tr><td><img src="capra.jpg" height="300px" widht="200px" onmouseover="fotografia(4)" id="immagine4"></td></tr>
+    <tr><td><img src="maiale.jpg" height="300px" widht="200px" onmouseover="fotografia(5)" id="immagine5"></td></tr>
+    <tr><td><img src="gatto.jpg" height="300px" widht="200px" onmouseover="fotografia(6)" id="immagine6"></td></tr>
+</body>
+</html>

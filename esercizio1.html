@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="UTF-8">
+        <title>Inserisci l'età dei partecipanti</title>
+        <script type="text/javascript">	
+        	function aggiungiInput(){
+            for(n=1; n<=10; n=n+1){
+            testo="Persona numero "+n;	
+            var formNumeri=document.getElementById("numeri");	
+            var elementoP=document.createElement("P");	
+            var elementoT=document.createTextNode(testo);	
+            var elementoI=document.createElement("INPUT");	 
+            formNumeri.appendChild(elementoP);	
+            elementoP.appendChild(elementoT);	
+            elementoP.appendChild(elementoI);	
+            elementoI.type="text";	
+            elementoI.name="txtnumero"+n;	
+            }
+            }
+            
+            
+        
+        	function calcola() {
+                var numMaggiorenni=0;
+                var numMinorenni=0;
+                var numUltraSessantacinquenni=0;
+            var numeri=new Array();	
+            	
+            totale=0;
+            
+           
+            for(n=1; n<=10; n++)
+            {
+            numeri[n]=parseInt(document.forms["numeri"]["txtnumero"+n].value);
+            
+            totale=totale+numeri[n];	
+            }
+            
+           for(n=1; n<=10; n++){
+            if(numeri[n]>=18){
+                            numMaggiorenni++;
+                            if(numeri[n]>65){
+                                numUltraSessantacinquenni++;
+                            }
+                        }
+                        else{
+                            numMinorenni++;
+                        }
+           }
+           
+            for(n=1; n<=10; n++)
+            {
+            document.write("<p> "+n+"° Persona: "+numeri[n]);
+            }
+            
+              document.write("<p>Media dei "+10+" partecipanti: "+(totale/10)+"</p>");
+              document.write("\nNumero Maggiorenni: " + numMaggiorenni +"\nNumero Minorenni: " + numMinorenni+"\nNumero Ultrasessantacinquenni: " + numUltraSessantacinquenni);
+}
+        </script>
+     </head>        
+<body>
+//Prima Modifica
+	<h2>Inserisci l'età dei partecipanti</h2>
+    <form id="strumenti">
+    	<p>
+        <input id="button" type="button" value="INIZIA L'INSERIMENTO" onclick="aggiungiInput()"> 
+        <input type="button" value="Reset" onclick="window.location.reload()"> 
+        </p>
+        </form>
+        <form id="numeri">	
+        <p>
+       
+        
+        <input type="button" value="calcola" onclick="calcola()">
+        </p>
+    </form>
+</body>
+</html> 
