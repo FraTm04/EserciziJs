@@ -1,6 +1,13 @@
 package eserciziopagina128n1;
 
 
+import java.io.*;
+
+/**
+ *
+ * @author FraDan
+ */
+
 public class EsercizioPagina128N1 {
     public static void main(String[] args) throws InterruptedException {
         //fase dichiarativa
